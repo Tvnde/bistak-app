@@ -7,6 +7,7 @@ import './card.scss'
 
 const Card = ({shelf}) => {
     let products = useSelector((state) => state.products)
+    let batches = useSelector((state) => state.batches)
     let shelf_products = JSON.parse(shelf.products).map((product) => {
         console.log(product)
         return products.filter((one_product) => {return one_product._id == product})[0]
@@ -25,7 +26,7 @@ const Card = ({shelf}) => {
             <div className="product-imgs">{
               shelf_products.map((product) => (
                 <div className="product-img">
-                  <img src={product.image!="" ? product.image : "https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png"} />
+                  <img src={(product.image && product.image!="") ? product.image : "https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png"} />
                 </div>
               ))}
             </div>
