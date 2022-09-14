@@ -1,13 +1,15 @@
 .card-shelf {
     margin: 0;
     padding: 0;
-    height: 360px;
+    height: 430px;
     width: 350px;
     background: #a1ffce75;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #faffd1c4, #a1ffce75);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #faffd1c4, #a1ffce75); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     border: none;
     font-family: 'Nunito';
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
 
     .card-content {
         height: 100%;
@@ -103,6 +105,29 @@
                 .card-detail-title {
                     font-size: 10px;
                 }
+            }
+
+            .card-link {
+                background-color: rgb(243, 243, 243);
+                color: darkgray;
+                font-size: 12px;
+                font-weight: 600;
+                width: auto;
+                height: 30px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2% 4%;
+                margin: 3%;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                border-radius: 3px;
+                cursor: pointer;
+
+                span {
+                    margin-right: 5px;
+                    margin-bottom: 5%;
+                }
+                
             }
         }
     }
