@@ -1,0 +1,90 @@
+.widget {
+    display: flex;
+    margin-right: 2%;
+    flex: 1;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+    border-radius: 10px;
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+
+
+    .left, .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 4% 2% 2% 2%;
+
+        .title {
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+        }
+
+        .image img {
+            height: 100px;
+            width: 100px;
+        }
+
+        .counter {
+            font-size: 24px;
+            font-weight: 300;
+            color: white;
+        }
+
+        .link {
+            font-size: 12px;
+            border-bottom: 1px solid gray;
+        }
+
+        .percentage {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+
+            &.positive {
+                color: white;
+            }
+
+            &.negative {
+                color: white;
+            }
+        }
+
+        .icon {
+            font-size: 28px;
+            align-self: flex-start;
+        }
+    }
+}
+
+.widget-product {
+    background: #fc4a1a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.widget-category {
+    background: #a8c0ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8c0ff, #3f2b96); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8c0ff, #3f2b96); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    
+}
+
+.widget-sale {
+    background: #56ab2f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+}
+
+.widget-stock {
+    background: #FF0099;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #493240, #FF0099);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #493240, #FF0099); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    
+}

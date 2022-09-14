@@ -1,0 +1,39 @@
+.dropdowns {
+    position: absolute;
+    top: 50px;
+    width: 400px;
+    right: 0;
+    overflow: hidden;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+    background-color: white;
+    z-index: 5;
+
+    .menu-item {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 15px;
+        padding: 5% 2%;
+        margin-bottom: 3%;
+
+        &.hover {
+            background-color: rgb(231, 231, 231);
+        }
+
+        .menu-icon {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 3%;
+        }
+    }
+}

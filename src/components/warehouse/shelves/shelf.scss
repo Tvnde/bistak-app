@@ -1,0 +1,25 @@
+.shelf {
+    display: flex;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+
+    .shelfContainer {
+        flex: 6;
+
+        .pageheader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+        }
+
+            .cards {
+                padding: 2%;
+                display: grid;
+                grid-template-columns: repeat(3, auto);
+                gap: 20px 20px;
+                
+            }
+    }
+
+}

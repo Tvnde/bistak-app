@@ -1,0 +1,30 @@
+.table {
+    background-color: white;
+    .cellWrapper {
+        display: flex;
+        align-items: center;
+
+        .image {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+    }
+
+    .available {
+        padding: 0.5%;
+        border-radius: 10%;
+
+        &.Available {
+            color: green;
+            background-color: rgba(0, 128, 0, 0.151);
+        }
+
+        &.Unavailable {
+            color: red;
+            background-color: rgba(0, 128, 0, 0.151);
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.notifications-all {
+    display: flex;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+
+    .notificationContainer {
+        flex: 6;
+    }
+
+    .notification-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 15px;
+        padding: 2%;
+        margin: 1%;
+        background-color: white;
+
+        .notification-icon {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 3%;
+        }
+
+        .notification-line {
+            color: rgb(29, 29, 29);
+            font-size: 16px;
+            font-weight: 700;
+        }
+    }
+}

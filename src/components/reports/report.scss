@@ -1,0 +1,62 @@
+.report {
+    display: flex;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+
+    .reportContainer {
+        flex: 6;
+
+        .pageheader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+        }
+
+        .productReport {
+            padding: 2%;
+            .productHeader {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .title {
+                    font-size: 22px;
+                }
+
+                .csv-link {
+                    text-decoration: none;
+                    color: white;
+                }
+            }
+
+            .productContent {
+                margin-top: 3%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .stockReport {
+                display: flex;
+                flex: 2;
+                align-items: center;
+                padding: 2%;
+
+                .stockIcon {
+                    flex: 1;
+                    .icon {
+                        font-size: 35px;
+                        color: #005312;
+                    }
+                }
+                .stockText {
+                    flex: 8;
+                    font-size: 22px;
+                }
+            }
+            .stockChart {
+                flex: 1;
+            }
+        }
+    }
+
+}

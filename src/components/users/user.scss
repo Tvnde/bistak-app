@@ -1,0 +1,42 @@
+.user {
+    display: flex;
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+
+    .listContainer {
+        flex: 6;
+
+        .pageheader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .newButton {
+                background-color: rgb(9, 68, 102);
+                color: rgb(253, 245, 229);
+                padding: 7px 15px;
+                border-radius: 5%;
+                cursor: pointer;
+            }
+
+/*             .fileImport {
+                display: none;
+            } */
+        }
+    }
+
+    .cellWithStatus {
+        padding: 5px;
+        border-radius: 5px;
+
+        &.available {
+            background-color: rgba(0, 128, 0, 0.05);
+            color: green;
+        }
+
+        &.unavailable {
+            background-color: rgba(255, 0, 0, 0.05);
+            color: crimson;
+        }
+    }
+}

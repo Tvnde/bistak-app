@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+ */
+
+ @font-face {
+  font-family: 'Nunito';
+  src: url(./assets/fonts/Nunito/static/Nunito-Regular.ttf);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 100%;
 }

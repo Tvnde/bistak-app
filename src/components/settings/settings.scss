@@ -1,0 +1,61 @@
+.settings {
+    width: 100%;
+    display: flex;
+    background-color: rgb(235, 235, 235);
+
+    .settingsContainer {
+        flex: 6;
+
+        .settingsForm {
+            padding-top: 5%;
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: space-around;
+
+                .formInput {
+                    width: 40%;
+                    position: relative;
+
+                    .settings-label {
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        font-size: 16px;
+                        font-weight: 600;
+                        transition: top .3s;
+                        padding: 0 5px;
+                    }
+
+                    .settings-input {
+                        width: 100%;
+                        padding: 3%;
+                        border: 1px solid #abb3c0;
+                        outline: none;
+                        background-color: transparent;
+                        border-radius: 10px;
+                        color: rgb(90, 89, 89);
+                        font-weight: 500;
+                        box-shadow: -1px 0px 7px -4px rgba(0,0,0,0.85);
+                        -webkit-box-shadow: -1px 0px 7px -4px rgba(0,0,0,0.85);
+                        -moz-box-shadow: -1px 0px 7px -4px rgba(0,0,0,0.85);
+
+                        &:focus {
+                            border-color: teal;
+                            border-width: 2px;
+                        }
+                    }
+
+                    .settings-input:focus ~ .settings-label,
+                    .settings-input:not(:placeholder-shown).settings-input:not(:focus) ~.settings-label {
+                        top: -15px;
+                        background-color: rgb(235, 235, 235);
+                        color: teal;
+                    }
+                }
+
+            }
+        }
+    }
+}

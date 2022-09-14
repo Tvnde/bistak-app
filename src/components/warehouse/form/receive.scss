@@ -1,0 +1,77 @@
+.receive {
+    display: flex;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    
+    .receiveContainer {
+        flex: 6;
+        
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-around;
+
+
+            .formInput {
+                width: 40%;
+                position: relative;
+
+                .create-label {
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    transition: top .3s;
+                    padding: 0 5px;
+
+                    .icon {
+                        cursor: pointer;
+                    }
+                }
+
+                .create-input, .select-input {
+                    width: 100%;
+                    padding: 3%;
+                    border: 1px solid #abb3c0;
+                    outline: none;
+                    background-color: transparent;
+                    border-radius: 10px;
+                    color: rgb(90, 89, 89);
+                    font-weight: 500;
+                    box-shadow: -1px 0px 7px -4px rgba(0,0,0,0.85);
+                    -webkit-box-shadow: -1px 0px 7px -4px rgba(0,0,0,0.85);
+                    -moz-box-shadow: -1px 0px 7px -4px rgba(0,0,0,0.85);
+
+                    &:focus {
+                        border-color: teal;
+                        border-width: 2px;
+                    }
+                }
+
+                .create-input:focus ~ .create-label,
+                .create-input:not(:placeholder-shown).create-input:not(:focus) ~.create-label {
+                    top: -15px;
+                    background-color: #ffffff;
+                    color: teal;
+                }
+
+                .select-input:focus ~ .create-label,
+                .select-input:not(:placeholder-shown).select-input:not(:focus) ~.create-label {
+                    top: -15px;
+                    background-color: #ffffff;
+                    color: teal;
+                }
+            }
+
+            button {
+                width: 40%;
+                padding: 10px;
+                border: none;
+                background-color: teal;
+                color: white;
+            }
+        }
+    }
+}
