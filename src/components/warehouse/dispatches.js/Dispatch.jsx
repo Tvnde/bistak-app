@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { loadDispatches } from '../../../actions/dispatches'
 import Navbar from '../../partials/navbar/Navbar'
 import Sidebar from '../sidebar/Sidebar'
+import Card from './Card'
 
 import './dispatch.scss'
 
@@ -29,6 +30,11 @@ const Dispatch = () => {
                         <Link to = "/dispatches/send" style={{textDecoration: "none", color: 'white'}}>Send Dispatch</Link>
                     </div>
                 </div>
+            </div>
+            <div className="cards">
+                {dispatches.map((dispatch) => (
+                    <Card dispatch={dispatch}/>
+                ))}
             </div>
         </div>
     </div>

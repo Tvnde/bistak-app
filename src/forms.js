@@ -132,7 +132,7 @@ export const sendDispatch = [
         id: 1,
         target: "dispatch_count",
         label: "Count to be dispatched",
-    }
+    },
 ]
 
 export const clientInputs = [

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from "react-router"
 import { getClients } from '../../../actions/clients'
+import { sendDispatch } from '../../../actions/dispatches'
 import { getProducts } from '../../../actions/products'
 import Navbar from '../../partials/navbar/Navbar'
 import Sidebar from '../sidebar/Sidebar'
@@ -18,9 +19,21 @@ const Send = ({inputs}) => {
 
   const [values, setValues] = useState({
     client: dispatches ? (dispatches.client) : "",
-    orderID: dispatches ? (dispatches.orderID) : "",
-    expiry_date: dispatches ? dispatches.expiry_date : "",
+    dispatchID: dispatches ? (dispatches.dispatchID) : "",
+    dispatch_count: dispatches ? (dispatches.dispatch_count) : 0,
+    product: dispatches ? (dispatches.product) : ""
 })
+
+const dispatchSend = (e) => {
+  e.preventDefault()
+  let client = document.querySelector("#client").value
+  let product = document.querySelector("#product").value
+  let dispatch_count = document.querySelector('#dispatch_count').value
+  let dispatchID = document.querySelector('#dispatchID').value
+  dispatch(sendDispatch({client, product, dispatch_count, dispatchID}))
+  console.log({client, product, dispatch_count, dispatchID})
+
+}
 
 useEffect(() => {
   dispatch(getProducts())
@@ -60,7 +73,7 @@ useEffect(() => {
                           <label className="create-label" htmlFor={input.target}>{input.label}</label>
                         </div>
                     ))}
-                    <button type='button'>Save</button>
+                    <button type='button' onClick={dispatchSend}>Save</button>
                 </form>
             </div>
         </div>
