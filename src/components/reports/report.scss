@@ -6,6 +6,10 @@
     .reportContainer {
         flex: 6;
 
+        .hidden-button {
+            display: none;
+        }
+
         .pageheader {
             display: flex;
             align-items: center;
@@ -19,13 +23,45 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
+                .report-button-area {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .report-button {
+                    margin-bottom: 4%;
+                    button {
+                        font-size: 15px;
+                        border-radius: 0;
+                        background-color: rgb(226, 226, 226);
+                        color: gray;
+                    }
+                }
+                .report-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 20px;
+                    position: absolute;
+                    top: 230px;
+
+                    button {
+                        font-size: 15px;
+                        border-radius: 0;
+                        background-color: rgb(226, 226, 226);
+                        color: gray;
+
+                    }
+                }
                 .title {
                     font-size: 22px;
                 }
 
                 .csv-link {
                     text-decoration: none;
-                    color: white;
+                    color: rgb(124, 124, 124);
                 }
             }
 
@@ -37,20 +73,22 @@
             }
             .stockReport {
                 display: flex;
+                flex-direction: column;
                 flex: 2;
                 align-items: center;
                 padding: 2%;
 
-                .stockIcon {
-                    flex: 1;
-                    .icon {
-                        font-size: 35px;
-                        color: #005312;
-                    }
-                }
+
                 .stockText {
-                    flex: 8;
                     font-size: 22px;
+                    display: flex;
+                    margin-bottom: 5%;
+                    .stockIcon {
+                        .icon {
+                            font-size: 35px;
+                            color: #005312;
+                        }
+                    }
                 }
             }
             .stockChart {

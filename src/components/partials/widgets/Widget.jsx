@@ -27,10 +27,10 @@ const Widget = ({type, value}) => {
     data = {
       id: "category",
       image: "https://bistakstore.s3.amazonaws.com/images/perspective-3d.png",
-      title: "CATEGORIES",
-      link: 'See all categories',
+      title: "expiring PRODUCTS",
+      link: 'See all products',
       value: value,
-      goto: "/categories",
+      goto: "/products",
       icon: (
         <CategoryOutlined className='icon' style={{color: 'goldenrod', background: 'rgba(218, 165, 32, 0.2'}}/>
       )

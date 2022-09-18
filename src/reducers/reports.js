@@ -3,6 +3,6 @@ export default (data = null, action) => {
         case 'LOAD_REPORT':
             return action.payload.data
         default:
-            return {products: [], products_out_of_stock: []}
+            return {products: [], products_out_of_stock: [], products_expiring: []}
     }
 }

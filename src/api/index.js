@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const base = axios.create({baseURL: 'http://localhost:7070'})
+const base = axios.create({baseURL: 'https://bistak-api.herokuapp.com'})
 
 base.interceptors.request.use((req) => {
     if(localStorage.getItem('profile')) req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile'))}`
