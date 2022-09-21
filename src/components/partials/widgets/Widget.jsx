@@ -27,8 +27,8 @@ const Widget = ({type, value}) => {
     data = {
       id: "category",
       image: "https://bistakstore.s3.amazonaws.com/images/perspective-3d.png",
-      title: "expiring PRODUCTS",
-      link: 'See all products',
+      title: "EXPIRING",
+      link: 'See expiring products',
       value: value,
       goto: "/products",
       icon: (
@@ -39,9 +39,9 @@ const Widget = ({type, value}) => {
     case "sales":
     data = {
       id: "sale",
-      title: "SALES",
-      link: 'View all sales',
-      goto: "/",
+      title: "LOW-ON-STOCK",
+      link: 'View low-stocked products',
+      goto: "/products",
       value: value,
       icon: (
         <MonetizationOnOutlined className='icon' style={{color: 'green', background: 'rgba(0, 128, 0, 0.2'}}/>

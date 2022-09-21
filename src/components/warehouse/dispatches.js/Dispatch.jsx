@@ -7,6 +7,8 @@ import Navbar from '../../partials/navbar/Navbar'
 import Sidebar from '../sidebar/Sidebar'
 import Card from './Card'
 
+import { CSVLink } from "react-csv"
+
 import './dispatch.scss'
 
 const Dispatch = () => {
@@ -29,11 +31,14 @@ const Dispatch = () => {
                     <div className="newButton">
                         <Link to = "/dispatches/send" style={{textDecoration: "none", color: 'white'}}>Send Dispatch</Link>
                     </div>
+                    <div className="newButton">
+                        <Link to = "/dispatches/send" style={{textDecoration: "none", color: 'white'}}>Export Dispatches</Link>
+                    </div>
                 </div>
             </div>
             <div className="cards">
-                {dispatches.map((dispatch) => (
-                    <Card dispatch={dispatch}/>
+                {dispatches.map((dispatch1) => (
+                    <Card disp={dispatch1}/>
                 ))}
             </div>
         </div>

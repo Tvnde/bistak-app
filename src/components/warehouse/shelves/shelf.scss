@@ -11,6 +11,22 @@
             align-items: center;
             justify-content: space-between;
 
+            .actionButtons {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                .newButton {
+                    background-color: rgb(9, 68, 102);
+                    color: rgb(253, 245, 229);
+                    margin: 5px;
+                    padding: 7px 15px;
+                    border-radius: 5%;
+                    cursor: pointer;
+                }
+            }
+
         }
 
             .cards {

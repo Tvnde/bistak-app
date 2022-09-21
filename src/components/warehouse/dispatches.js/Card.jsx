@@ -10,9 +10,10 @@ import './card.scss'
 
 const Card = ({disp}) => {
     let products = useSelector((state) => state.products)
-    let product = products.filter((product) => {return product._id == dispatch.product})[0]
+    let product = products.filter((product) => {return product._id == disp.product})[0]
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    console.log(disp)
 
     useEffect(() => {
         dispatch(getProducts())

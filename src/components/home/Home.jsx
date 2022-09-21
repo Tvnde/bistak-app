@@ -53,7 +53,7 @@ const Home = () => {
                 <div className="widgets">
                     <Widget type="products" value = {auth.products}/>
                     <Widget type="categories" value = {auth.expired_count.length}/>
-                    <Widget type="sales" value = {0}/>
+                    <Widget type="sales" value = {auth.low_stock.length}/>
                     <Widget type="stock" value = {auth.per_stock.toFixed(2)}/>
                 </div>
                 <div className="charts">

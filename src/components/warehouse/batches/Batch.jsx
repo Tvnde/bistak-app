@@ -8,6 +8,8 @@ import { loadBatches } from "../../../actions/batches";
 import Navbar from '../../partials/navbar/Navbar'
 import Sidebar from '../sidebar/Sidebar'
 
+import { CSVLink } from "react-csv"
+
 import './batch.scss'
 import Card from './Card';
 
@@ -19,6 +21,21 @@ const Batch = () => {
     useEffect(() => {
         dispatch(loadBatches())
     }, [dispatch])
+
+    const headers = [
+        {label: "Batch ID", key: 'batchID'},
+        {label: "Group ID", key: 'groupID'},
+        {label: "Product", key: 'product_name'},
+        {label: "Production Date", key: 'production_date'},
+        {label: "Expiry Date", key: 'expiry_date'},
+        {label: "Batch Count", key: 'batch_count'},
+        {label: "Collection Count", key: 'collection_count'},
+    ]
+    const batchReport = {
+        filename: "Export_Batches.csv",
+        headers,
+        data: batches
+    }
   return (
     <div className='batches'>
         <Sidebar/>
@@ -29,6 +46,9 @@ const Batch = () => {
                 <div className="actionButtons">
                     <div className="newButton">
                         <Link to = "/batches/receive" style={{textDecoration: "none", color: 'white'}}>Receive Batch</Link>
+                    </div>
+                    <div className="newButton">
+                        <CSVLink {...batchReport} className="csv-link">Export Batches</CSVLink>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Featured from '../partials/featured/Featured'
 import Navbar from '../partials/navbar/Navbar'
 import Sidebar from '../partials/sidebar/Sidebar'
-import { CSVLink } from "react-csv";
+import { CSVLink } from "react-csv"
 
 import './report.scss'
 import { loadReport } from '../../actions/reports'

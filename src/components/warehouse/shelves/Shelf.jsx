@@ -6,6 +6,8 @@ import Navbar from '../../partials/navbar/Navbar'
 import Sidebar from '../sidebar/Sidebar'
 import Card from './Card'
 
+import { CSVLink } from "react-csv"
+
 import './shelf.scss'
 
 const Shelf = () => {
@@ -24,11 +26,11 @@ const Shelf = () => {
             <Navbar/>
             <div className="pageheader">
                 <div className="title">Shelves</div>
-{/*                 <div className="actionButtons">
+                <div className="actionButtons">
                     <div className="newButton">
-                        <Link to = "/shelves/receive" style={{textDecoration: "none", color: 'white'}}>Receive Batch</Link>
+                        <Link to = "/shelves/receive" style={{textDecoration: "none", color: 'white'}}>Export Shelves</Link>
                     </div>
-                </div> */}
+                </div>
             </div>
             <div className="cards">
                 {shelves.map((shelf) => (
