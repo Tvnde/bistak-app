@@ -19,6 +19,22 @@ const Dispatch = () => {
   useEffect(() => {
     dispatch(loadDispatches())
   }, [dispatch])
+
+  const headers = [
+    {label: "Dispatch ID", key: 'dispatchID'},
+    {label: "Batch ID", key: 'batchID'},
+    {label: "Group ID", key: 'groupID'},
+    {label: "Product", key: 'product_name'},
+    {label: "Production Date", key: 'production_date'},
+    {label: "Expiry Date", key: 'expiry_date'},
+    {label: "Batch Count", key: 'batch_count'},
+    {label: "Collection Count", key: 'collection_count'},
+]
+const dispatchReport = {
+    filename: "Export_Batches.csv",
+    headers,
+    data: dispatches
+}
   
   return (
     <div className='dispatch'>
@@ -32,7 +48,7 @@ const Dispatch = () => {
                         <Link to = "/dispatches/send" style={{textDecoration: "none", color: 'white'}}>Send Dispatch</Link>
                     </div>
                     <div className="newButton">
-                        <Link to = "/dispatches/send" style={{textDecoration: "none", color: 'white'}}>Export Dispatches</Link>
+                    <CSVLink {...dispatchReport} className="csv-link">Export Dispatches</CSVLink>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,6 @@ export default (data = null, action) => {
         case 'LOAD_DASHBOARD':
             return action.payload.data
         default:
-            return {products: 0, categories: 0, per_stock: 0, users: 0, expired_count: 0}
+            return {products: 0, categories: 0, per_stock: 0, users: 0, expired_count: 0, low_stock: 0}
     }
 }
