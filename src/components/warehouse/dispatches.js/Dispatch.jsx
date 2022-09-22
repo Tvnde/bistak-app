@@ -13,6 +13,7 @@ import './dispatch.scss'
 
 const Dispatch = () => {
   let dispatches = useSelector((state) => state.dispatches)
+  console.log(dispatches)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -22,16 +23,15 @@ const Dispatch = () => {
 
   const headers = [
     {label: "Dispatch ID", key: 'dispatchID'},
-    {label: "Batch ID", key: 'batchID'},
+    {label: "Batches", key: 'batches'},
     {label: "Group ID", key: 'groupID'},
     {label: "Product", key: 'product_name'},
-    {label: "Production Date", key: 'production_date'},
-    {label: "Expiry Date", key: 'expiry_date'},
-    {label: "Batch Count", key: 'batch_count'},
-    {label: "Collection Count", key: 'collection_count'},
+    {label: "Dispatch Count", key: 'dispatch_count'},
+    {label: "Client", key:'client_name'},
+    {label: "Date", key: 'date_created'}
 ]
 const dispatchReport = {
-    filename: "Export_Batches.csv",
+    filename: "Export_Dispatches.csv",
     headers,
     data: dispatches
 }
@@ -48,7 +48,7 @@ const dispatchReport = {
                         <Link to = "/dispatches/send" style={{textDecoration: "none", color: 'white'}}>Send Dispatch</Link>
                     </div>
                     <div className="newButton">
-                    <CSVLink {...dispatchReport} className="csv-link">Export Dispatches</CSVLink>
+                        <CSVLink {...dispatchReport} className="csv-link">Export Dispatches</CSVLink>
                     </div>
                 </div>
             </div>
