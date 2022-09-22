@@ -30,7 +30,7 @@ const dispatchSend = (e) => {
   let product = document.querySelector("#product").value
   let dispatch_count = document.querySelector('#dispatch_count').value
   let dispatchID = document.querySelector('#dispatchID').value
-  dispatch(sendDispatch({client, product, dispatch_count, dispatchID}))
+  dispatch(sendDispatch({client, product, dispatch_count, dispatchID}, navigate))
   console.log({client, product, dispatch_count, dispatchID})
 
 }

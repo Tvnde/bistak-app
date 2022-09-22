@@ -26,7 +26,7 @@ const Card = ({batch}) => {
               <img src= {(product && product.image && product.image!="") ? products.filter((product) => {return product._id == batch.product})[0].image : "https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png"} alt="" />
             </div>
             <div className="product-name">
-            {products.filter((product) => {return product._id == batch.product})[0] ? products.filter((product) => {return product._id == batch.product})[0].name : null}
+            {batch.product_name}
             </div>
           </div>
           <div className="card-below">

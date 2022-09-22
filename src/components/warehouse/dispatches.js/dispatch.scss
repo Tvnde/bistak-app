@@ -27,5 +27,12 @@
                 }
             }
         }
+        .cards {
+            padding: 2%;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 30px 20px;
+            
+        }
     }
 }
