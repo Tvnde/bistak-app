@@ -25,9 +25,9 @@ export const logout = (navigate) => {
     navigate('/login');
 }
 
-export const dashboard = () => async(dispatch) => {
+export const dashboard = (user) => async(dispatch) => {
     try {
-        const {data} = await api.load()
+        const {data} = await api.load({user})
         console.log(data)
         dispatch({type: LOAD_DASHBOARD, payload: data})
     } catch (error) {

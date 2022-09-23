@@ -5,5 +5,26 @@
 
     .warehouseContainer {
         flex: 6;
+
+        .widgets, .charts {
+            display: flex;
+            padding: 2%;
+            gap: 2%;
+            flex-wrap: wrap;
+        }
+    
+        .listContainer {
+            box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(172, 172, 172, 0.678);
+            padding: 2%;
+            margin: 2%;
+    
+            .listTitle {
+                font-weight: 500;
+                color: gray;
+                margin-bottom: 1%;
+            }
+        }
     }
 }

@@ -41,7 +41,7 @@ const Home = () => {
                 socket.emit("newUser", user)
             } */
             dispatch(loadNotifications())
-            dispatch(dashboard())
+            dispatch(dashboard(user.id))
         } else Logout()
     }, [location, dispatch])
     return (

@@ -61,6 +61,63 @@ const Widget = ({type, value}) => {
         <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
       )
     }
+    break;
+    case 'batches':
+    data = {
+      id: "batches",
+      title: "BATCHES",
+      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      link: "See all batches",
+      goto: "/batches",
+      value,
+      icon: (
+        <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
+      )
+
+    }
+    break;
+    case 'dispatches':
+    data = {
+      id: "dispatches",
+      title: "DISPATCHES",
+      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      link: "See all dispatches",
+      goto: "/dispatches",
+      value,
+      icon: (
+        <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
+      )
+
+    }
+    break;
+    case 'shelves':
+    data = {
+      id: "shelves",
+      title: "SHELVES",
+      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      link: "See all shelves",
+      goto: "/shelves",
+      value,
+      icon: (
+        <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
+      )
+
+    }
+    break;
+    case 'clients':
+    data = {
+      id: "clients",
+      title: "CLIENTS",
+      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      link: "See all clients",
+      goto: "/clients",
+      value,
+      icon: (
+        <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
+      )
+
+    }
+    break;
     default:
     break;
   }
