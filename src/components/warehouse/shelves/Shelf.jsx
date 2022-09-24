@@ -19,6 +19,20 @@ const Shelf = () => {
         dispatch(loadShelf())
         console.log(shelves)
     }, [dispatch])
+
+    const headers = [
+        {label: "Shelf ID", key: 'shelfID'},
+        {label: "Batches", key: 'batches'},
+        {label: "Products", key: 'products'},
+        {label: "Items Count", key: 'count'},
+        {label: "Date", key: 'date_created'}
+    ]
+
+    let shelfReport = {
+        filename: "Export_Shelves.csv",
+        headers,
+        data: shelves
+    }
   return (
     <div className='shelf'>
         <Sidebar/>
@@ -28,7 +42,7 @@ const Shelf = () => {
                 <div className="title">Shelves</div>
                 <div className="actionButtons">
                     <div className="newButton">
-                        <Link to = "/shelves/receive" style={{textDecoration: "none", color: 'white'}}>Export Shelves</Link>
+                    <CSVLink {...shelfReport} className="csv-link">Export Shelves</CSVLink>
                     </div>
                 </div>
             </div>

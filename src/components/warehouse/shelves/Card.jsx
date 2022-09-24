@@ -5,14 +5,10 @@ import { getProducts } from '../../../actions/products'
 
 import './card.scss'
 
-const Card = ({shelf}) => {
+const Card = ({shelf}) => {/* 
     let products = useSelector((state) => state.products)
-    let batches = useSelector((state) => state.batches)
-    let shelf_products = JSON.parse(shelf.products).map((product) => {
-        console.log(product)
-        return products.filter((one_product) => {return one_product._id == product})[0]
-    })
-    console.log(shelf_products)
+    let batches = useSelector((state) => state.batches) */
+    let shelf_images = shelf.images.split(",")
     const dispatch = useDispatch()
     const navigate = useNavigate()
   
@@ -24,13 +20,15 @@ const Card = ({shelf}) => {
         <div className="card-content">
           <div className="card-above">
             <div className="product-imgs">{
-              shelf_products.map((product) => (
+              shelf_images.map((image) => (
                 <div className="product-img">
-                  <img src={(product.image && product.image!="") ? product.image : "https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png"} />
+                  <img src={(image!="") ? image : "https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png"} />
                 </div>
               ))}
             </div>
-            <div className="product-name">{/* 
+            <div className="product-name">{
+                shelf.products
+              /* 
             {products.filter((product) => {return product._id == shelf.product})[0] ? products.filter((product) => {return product._id == shelf.product})[0].name : null} */}
             </div>
           </div>
