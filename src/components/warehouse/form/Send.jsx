@@ -36,7 +36,7 @@ const dispatchSend = (e) => {
 }
 
 useEffect(() => {
-  dispatch(getProducts())
+  dispatch(getProducts(""))
   dispatch(getClients())
 }, [dispatch])
   return (

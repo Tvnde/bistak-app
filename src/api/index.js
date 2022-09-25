@@ -25,6 +25,10 @@ export const deleteProduct = (credentials) => base.post('/products/delete', cred
 
 export const searchProduct = (credentials) => base.post('/products/search', credentials, {withCredentials: true})
 
+export const expiringProducts = (credentials) => base.post('/products/expiring', credentials, {withCredentials: true})
+
+export const lowStockProducts = (credentials) => base.post('/products/low-on-stock', credentials, {withCredentials: true})
+
 export const fetchUsers = (credentials) => base.post('/users', credentials, {withCredentials: true})
 
 export const fetchUser = (credentials) => base.post('/users/view', credentials, {withCredentials: true})

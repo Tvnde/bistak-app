@@ -1,12 +1,61 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+
+import { Link, useNavigate } from 'react-router-dom'
+
+import { getProduct, getProducts } from "../../../actions/products"
 
 import './widget.scss'
 
 import { CategoryOutlined, InventoryOutlined, KeyboardArrowUp, MonetizationOnOutlined, Store, StorefrontOutlined } from '@mui/icons-material'
+import { loadBatches, loadShelf } from '../../../actions/batches';
+import { getClients } from '../../../actions/clients';
+import { loadDispatches } from '../../../actions/dispatches';
+
+
 
 const Widget = ({type, value}) => {
+
+  let dispatch = useDispatch()
+  let navigate = useNavigate()
+
+  let clickProducts = () => {
+    dispatch(getProducts(""))
+    navigate('/products')
+  }
+
+  let clickExpiredProducts = () => {
+    dispatch(getProducts("expiring"))
+    navigate('/products')
+  }
+
+  let clickLowProducts = () => {
+    dispatch(getProducts("low-on-stock"))
+    navigate('/products')
+  }
+
+  let clickBatches = () => {
+    dispatch(loadBatches())
+    navigate('/batches')
+  }
+
+  let clickShelves = () => {
+    dispatch(loadShelf())
+    navigate('/shelves')
+
+  }
+
+  let clickClients = () => {
+    dispatch(getClients())
+    navigate('/clients')
+  }
+
+  let clickDispatches = () => {
+    dispatch(loadDispatches())
+    navigate('/dispatches')
+  }
+
   let data;
 
   switch (type) {
@@ -16,6 +65,7 @@ const Widget = ({type, value}) => {
       image: "https://bistakstore.s3.amazonaws.com/images/product-3d.png",
       title: "PRODUCTS",
       link: 'See all products',
+      function: () => clickProducts(),
       value: value,
       goto: "/products",
       icon: (
@@ -29,6 +79,7 @@ const Widget = ({type, value}) => {
       image: "https://bistakstore.s3.amazonaws.com/images/perspective-3d.png",
       title: "EXPIRING",
       link: 'expiring products',
+      function: () => clickExpiredProducts(),
       value: value,
       goto: "/products",
       icon: (
@@ -41,6 +92,7 @@ const Widget = ({type, value}) => {
       id: "sale",
       title: "LOW-STOCK",
       link: 'low-stocked',
+      function: () => clickLowProducts(),
       goto: "/products",
       value: value,
       icon: (
@@ -55,6 +107,7 @@ const Widget = ({type, value}) => {
       image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
       isPercentage: true,
       link: 'See all products',
+      function: ()=>clickProducts(),
       goto: "/products",
       value: value,
       icon: (
@@ -66,8 +119,9 @@ const Widget = ({type, value}) => {
     data = {
       id: "batches",
       title: "BATCHES",
-      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      image: "https://bistakstore.s3.amazonaws.com/images/perspective_matte-489-128x128.png",
       link: "See all batches",
+      function: () =>clickBatches(),
       goto: "/batches",
       value,
       icon: (
@@ -80,8 +134,9 @@ const Widget = ({type, value}) => {
     data = {
       id: "dispatches",
       title: "DISPATCHES",
-      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      image: "https://bistakstore.s3.amazonaws.com/images/perspective_matte-487-128x128.png",
       link: "See all dispatches",
+      function: () => clickDispatches(),
       goto: "/dispatches",
       value,
       icon: (
@@ -94,9 +149,10 @@ const Widget = ({type, value}) => {
     data = {
       id: "shelves",
       title: "SHELVES",
-      image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
+      image: "https://bistakstore.s3.amazonaws.com/images/Bookshelf_perspective_matte-128x128.png",
       link: "See all shelves",
       goto: "/shelves",
+      function: () => clickShelves(),
       value,
       icon: (
         <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
@@ -111,6 +167,7 @@ const Widget = ({type, value}) => {
       image: "https://bistakstore.s3.amazonaws.com/images/comparison-3d.png",
       link: "See all clients",
       goto: "/clients",
+      function: () => clickClients(),
       value,
       icon: (
         <InventoryOutlined className='icon' style={{color: 'purple', background: 'rgba(128, 0, 128, 0.2'}}/>
@@ -127,7 +184,8 @@ const Widget = ({type, value}) => {
             <span className='widget-icon'>{data.icon}</span>
             <span className="counter">{data.value}{data.isPercentage && "%"}</span>
             <span className="title">{data.title}</span>
-            <Link to ={data.goto}><span className="link">{data.link}</span></Link>
+            <div className='button-widget' onClick={data.function}>{data.link}</div>{/* 
+            <Link to ={data.goto}><span className="link">{data.link}</span></Link> */}
         </div>
         <div className="right">
 {/*             <div className="percentage positive">

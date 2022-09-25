@@ -16,7 +16,7 @@ const Card = ({disp}) => {
     console.log(disp)
 
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getProducts(""))
     }, [dispatch])
   return (
     <div className='card_dispatch'>

@@ -13,7 +13,7 @@ const Card = ({shelf}) => {/*
     const navigate = useNavigate()
   
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getProducts(""))
     }, [dispatch])
   return (
     <div className='card-shelf'>

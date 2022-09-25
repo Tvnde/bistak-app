@@ -15,7 +15,7 @@ const Card = ({batch}) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-      dispatch(getProducts())
+      dispatch(getProducts(""))
   }, [dispatch])
   console.log(products)
   return (

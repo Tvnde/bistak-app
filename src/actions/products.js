@@ -1,10 +1,18 @@
 import { PRODUCT_CREATE, PRODUCT_FETCH } from "../constants/types"
 import * as api from '../api'
 
-export const getProducts = (product) => async(dispatch) => {
+export const getProducts = (factor) => async(dispatch) => {
     try {
-        const {data} = await api.fetchProducts()
-        dispatch({ type: 'PRODUCT_FETCH', payload: data })
+        if(factor == "expiring") {
+            const {data} = await api.expiringProducts()
+            dispatch({ type: 'PRODUCT_FETCH', payload: data })
+        } else if(factor == "low-on-stock") {
+            const {data} = await api.lowStockProducts()
+            dispatch({ type: 'PRODUCT_FETCH', payload: data })
+        } else {
+            const {data} = await api.fetchProducts()
+            dispatch({ type: 'PRODUCT_FETCH', payload: data })
+        }
     } catch (error) {
         console.log(error.message)
     }

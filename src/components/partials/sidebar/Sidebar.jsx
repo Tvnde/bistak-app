@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 import './sidebar.scss'
 
 import { Dashboard, Store, NotificationsNone, Assessment, Logout, PersonOutline, PeopleOutline, AppSettingsAltOutlined } from "@mui/icons-material"
+import { getProducts } from '../../../actions/products'
 
 
 
@@ -18,6 +19,10 @@ const Sidebar = () => {
         console.log("Hello")
         dispatch({type: 'LOGOUT_SUCCESS'})
         navigate('/login')
+    }
+    let clickProducts = () => {
+        dispatch(getProducts(""))
+        navigate('/products')
     }
   return (
     <div className='sidebar'>
@@ -39,12 +44,12 @@ const Sidebar = () => {
                     </li>
                 </Link>
                 <p className="title">LISTS and STATS</p>
-                <Link to="/products" style={{textDecoration: "none"}}>
+                <div className="link-side" onClick={()=> clickProducts()}>
                     <li>
                         <Store className='icon' />
                         <span>Products</span>
                     </li>
-                </Link>
+                </div>
                 <Link to = "/stats" style={{textDecoration: "none"}}>
                     <li>
                         <Assessment className='icon' />

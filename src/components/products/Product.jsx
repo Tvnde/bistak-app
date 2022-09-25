@@ -6,9 +6,9 @@ import Navbar from '../partials/navbar/Navbar'
 import Pageheader from '../partials/pageheader/Pageheader'
 import Sidebar from '../partials/sidebar/Sidebar'
 
-import { getProducts, importProducts } from "../../actions/products";
+import { getProducts, importProducts } from "../../actions/products"
 
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx"
 
 import './product.scss'
 import { loadNotifications } from '../../actions/notifications'
@@ -56,8 +56,8 @@ const Product = () => {
         })
     }
 
-    useEffect(() => {
-        dispatch(getProducts())
+    useEffect(() => {/* 
+        dispatch(getProducts("")) */
         dispatch(loadNotifications())
         setLoading(false)
     }, [dispatch])

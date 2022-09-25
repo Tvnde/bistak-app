@@ -39,7 +39,7 @@ const Receive = ({inputs}) => {
     }
 
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getProducts(""))
     }, [dispatch])
   return (
     <div className='receive'>
