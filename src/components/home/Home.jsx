@@ -35,7 +35,11 @@ const Home = () => {
         if(token) {
             const decodeToken = decode(token)
             if(decodeToken.exp * 1000 < new Date().getTime()) Logout()
-            else setUser(JSON.parse(localStorage.getItem("profile")))/* 
+            else setUser(JSON.parse(localStorage.getItem("profile")))
+            if(JSON.parse(localStorage.getItem("profile")).role != "Stock Officer") {
+                console.log(localStorage.getItem("profile").role)
+                navigate('/warehouse')   
+            }/* 
             if(!socket){
                 setSocket(io("https://bistak-api.herokuapp.com"))
                 socket.emit("newUser", user)

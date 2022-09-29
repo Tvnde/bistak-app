@@ -75,11 +75,11 @@ const Sidebar = () => {
                             <span>Settings</span>
                         </li>
                     </Link>
-                <p className="title">CRM</p>
+{/*                 <p className="title">CRM</p>
                 <li>
                     <PeopleOutline className='icon'/>
                     <span>Clients</span>
-                </li>
+                </li> */}
                 <p className="title">SETTINGS</p>
                 <li onClick={logout1}>
                     <Logout className='icon'/>

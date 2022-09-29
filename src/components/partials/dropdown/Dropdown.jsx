@@ -1,9 +1,18 @@
 import { FmdBadOutlined, RemoveCircleOutlined, RemoveCircleOutlineOutlined } from '@mui/icons-material'
 import React from 'react'
+import { useDispatch } from "react-redux"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { getProduct } from '../../../actions/products'
 
 import './dropdown.scss'
+
+
+
+const Dropdown = ({notifications}) => {
+  console.log(notifications)
+  let dispatch = useDispatch()
+  let navigate = useNavigate()
 
 const checkExpiry = (date, name) => {
   let difference = new Date(date) - new Date()
@@ -16,13 +25,16 @@ const checkExpiry = (date, name) => {
   }
 }
 
-const Dropdown = ({notifications}) => {
+const setProduct = (product_id) => {
+  dispatch(getProduct(product_id))
+  navigate('/products/'+product_id)
+}
   return (
     <div className='dropdowns'>
       {notifications.slice(0, 5).map((notification) => (
         <div className="menu-item">
           <span className="menu-icon">{notification.type == "expiry" ? <FmdBadOutlined /> : (notification.type == "stock" ? <RemoveCircleOutlineOutlined /> : null)}</span>
-          <div className="menu-text"><Link to ={`/products/${notification.id}`} style={{textDecoration: "none", color: 'darkgray'}}>{notification.type == "stock" ? (notification.name+" is low on stock"): (notification.type == "expiry" ? (checkExpiry(notification.date, notification.name)) : "Client's birthday")}</Link></div>
+          <div className="menu-text" onClick={() => setProduct(notification.id)}>{notification.type == "stock" ? (notification.name+" is low on stock"): (notification.type == "expiry" ? (checkExpiry(notification.date, notification.name)) : "Client's birthday")}</div>
       </div>
       ))}
       <div className="menu-item">

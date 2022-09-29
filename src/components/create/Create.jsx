@@ -144,7 +144,7 @@ const Create = ({inputs, title, entity}) => {
                         </div>
                         {inputs.map((input) => (
                         <div className="formInput" key={input.id}>
-                            {input.type =="date" ? (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue={entity == "product" ? values[input.target].split("T") : valuet[input.target]} placeholder=" " />) : (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue={entity == "product" ? values[input.target] : valuet[input.target]} placeholder=" " />)}
+                            {input.type =="date" ? (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue=/*come back here*/"" placeholder=" " />) : (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue={entity == "product" ? values[input.target] : valuet[input.target]} placeholder=" " />)}
                             
                             <label className="create-label" htmlFor={input.target}>{input.label}</label>
                         </div>
