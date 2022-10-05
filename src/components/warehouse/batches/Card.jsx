@@ -9,6 +9,7 @@ import { Inventory2 } from '@mui/icons-material'
 import './card.scss'
 
 const Card = ({batch}) => {
+  console.log(batch)
   let products = useSelector((state) => state.products)
   let product = products.filter((product) => {return product._id == batch.product})[0]
   const dispatch = useDispatch()

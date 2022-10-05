@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import './navbar.scss'
 
 import { DarkModeOutlined, LanguageOutlined, NotificationsNone, SearchOutlined } from '@mui/icons-material'
-import { useState } from 'react'
 import Dropdown from '../dropdown/Dropdown'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadNotifications } from '../../../actions/notifications'
 import { searchProduct } from '../../../actions/products'
 import { useNavigate } from 'react-router-dom'
+import { searchBatches } from '../../../actions/batches'
 
 const Navbar = () => {
     const notifications = useSelector((state) => state.notifications)
@@ -23,13 +23,15 @@ const Navbar = () => {
     const searchProduct1 = () => {
         console.log(document.getElementById('search-text').value)
         let query = (document.getElementById('search-text').value)
-        dispatch(searchProduct(query))
+        let role = JSON.parse(localStorage.getItem('profile')).role
+        if(role == "Warehouse Manager") dispatch(searchBatches(query))
+        else dispatch(searchProduct(query))
     }
   return (
     <div className='dashboard-navbar'>
         <div className="dashboard-wrapper">
             <div className="search">
-                <input type='text' className='searchText' id='search-text' placeholder="Search Users and Products" onChange={searchProduct1}/>
+                {JSON.parse(localStorage.getItem('profile')).role == "Stock Officer" ? <input type='text' className='searchText' id='search-text' placeholder="Search Users and Products" onChange={searchProduct1}/> : <input type='text' className='searchText' id='search-text' placeholder="Search Batches and Dispatches" onChange={searchProduct1}/>}
                 <SearchOutlined className='icon' />
             </div>
             <div className="dashboard-items">

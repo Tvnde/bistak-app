@@ -1,4 +1,4 @@
-import { BATCH_RECEIVE, BATCH_SEND, BATCH_FETCH, BATCH_FAIL, SHELF_FETCH } from "../constants/types"
+import { BATCH_RECEIVE, BATCH_SEND, BATCH_FETCH, BATCH_FAIL, SHELF_FETCH, BATCH_SEARCH } from "../constants/types"
 import * as api from '../api'
 
 export const loadBatches = () => async(dispatch) => {
@@ -21,8 +21,15 @@ export const receiveBatch = (values, navigate) => async(dispatch) => {
     }
 }
 
-export const sendBatch = () => async(dispatch) => {
-
+export const searchBatches = (query) => async(dispatch) => {
+    try {
+        console.log(query)
+        const {data} = await api.searchBatches({query})
+        console.log(data)
+        dispatch({type: BATCH_SEARCH, payload: data})
+    } catch (error) {
+        console.log(error.message)
+    }
 }
 
 export const loadShelf = () => async(dispatch) => {

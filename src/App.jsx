@@ -31,7 +31,7 @@ const App = () => (
                 <div className="app-container">
                 <Routes>
                         <Route path='/'>
-                                <Route index element={role ? (role.role == "Stock Officer" ? <Home /> : <Warehouse/>) : <Home/>} />
+                                <Route index element={<Home />} />
                                 <Route path='login' element={<Login />} />
                         </Route>
                         <Route path='products'>

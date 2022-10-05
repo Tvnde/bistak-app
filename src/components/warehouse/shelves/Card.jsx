@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 import { getProducts } from '../../../actions/products'
+import { DriveFolderUploadOutlined, RemoveRedEye } from '@mui/icons-material'
 
 import './card.scss'
 
@@ -39,6 +40,9 @@ const Card = ({shelf}) => {/*
             <div className="card-below-bottom">{/* 
               <div className="card-detail"><div className="card-detail-text">{batch.collection_count}</div><div className="card-detail-title">ITEMS</div></div>
               <div className="card-detail"><div className="card-detail-text">{batch.date_created.split("T")[0]}</div><div className="card-detail-title">DATE</div></div> */}
+            </div>
+            <div className="card-below-links">
+              <div className="card-link"><span><RemoveRedEye style={{fontSize: '18px'}}/></span> Edit</div>
             </div>
           </div>
         </div>

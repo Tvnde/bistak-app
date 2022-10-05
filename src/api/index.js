@@ -53,6 +53,8 @@ export const receiveBatch = (credentials) => base.post('/batches/create', creden
 
 export const fetchBatches = (credentials) => base.post('/batches', credentials, {withCredentials: true})
 
+export const searchBatches = (credentials) => base.post('/batches/search', credentials, {withCredentials: true})
+
 export const fetchClients = (credentials) => base.post('/clients', credentials, {withCredentials: true})
 
 export const createClients = (credentials) => base.post('/clients/create', credentials, {withCredentials: true})

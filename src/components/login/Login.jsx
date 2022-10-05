@@ -10,7 +10,7 @@ import { FaMailBulk, FaEyeSlash } from "react-icons/fa"
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './login.scss'
-import Loading from '../partials/loading/Loading';
+import Loading from '../partials/loading/Loading'
 
 const Login = () => {
     const dispatch = useDispatch()

@@ -12,8 +12,9 @@ export const login = (values, navigate) => async (dispatch) => {
         const { data } = await api.login(values)
         console.log(data)
         await dispatch({type: LOGIN_SUCCESS, payload: data})
-        if(JSON.parse(localStorage.getItem("profile")).role == "Warehouse Manager") navigate('/warehouse')
-        else navigate('/')
+        console.log(data)
+        if(data.user.role == "Warehouse Manager"){ navigate('/warehouse')}
+        else {navigate('/')}
     } catch (error) {
         dispatch({type: LOGIN_FAIL  })
         console.log(error.message)

@@ -8,6 +8,8 @@ export default (batches = [], action) => {
             return action.payload.batches
         case 'BATCH_EDIT':
             return action.payload.batches
+        case 'BATCH_SEARCH':
+            return action.payload.batches
         default:
             return batches
     }
