@@ -50,7 +50,7 @@ const Home = () => {
             dispatch(loadNotifications())
             dispatch(dashboard(user.id))
         } else Logout()
-    }, [location, dispatch, Logout, navigate])
+    }, [location, dispatch])
     return (
         <div className='dashboard'>
             <Sidebar />
