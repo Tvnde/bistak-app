@@ -12,6 +12,7 @@ import { CSVLink } from "react-csv"
 
 import './batch.scss'
 import Card from './Card';
+import Datatable from '../../partials/datatable/Datatable';
 
 const Batch = () => {
     let batches = useSelector((state) => state.batches)
@@ -23,7 +24,7 @@ const Batch = () => {
     }, [dispatch])
 
     const headers = [
-        {label: "Batch ID", key: 'batchID'},
+        {label: "Batch ID", key: "id"},
         {label: "Group ID", key: 'groupID'},
         {label: "Product", key: 'product_name'},
         {label: "Production Date", key: 'production_date'},
@@ -36,6 +37,35 @@ const Batch = () => {
         headers,
         data: batches
     }
+    const columns = [
+        { field: 'id', headerName: 'Batch ID', width: 100 },/* 
+        { field: 'shelf', headerName: 'Shelf', width: 110 }, */
+        { 
+            field: 'product_name',
+            headerName: 'Product',
+            width: 300,
+            renderCell: (params) => {
+                return (
+                    <div className="cellWithImg">
+                        <img src={params.row.image ? params.row.image : ("https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png")} alt="avatar" className='cellImg' />
+                        {params.row.product_name}
+                    </div>
+                )
+            }
+        },
+        { field: 'batch_count', headerName: 'Batch Count', width: 100 },
+        { field: 'collection_count', headerName: 'ItemsInBatch', width: 100 },
+        { field: 'current_count', headerName: 'CurrentItemsCount', width: 140},
+        { 
+            field: 'expiry_date',
+            headerName: 'Expiry Date',
+            width: 150,
+            renderCell: (params) => {
+                return <div className={`cellWithDate`}>{params.row.expiry_date ? (new Date(params.row.expiry_date)).toDateString() : null}</div>
+            }
+        },
+    ]
+    let all_batches = batches.length == 0 ? [{id: "", product_name: "", batch_count: "", collection_count: "", current_count: "", expiry_date: ""}] : batches
   return (
     <div className='batches'>
         <Sidebar/>
@@ -52,11 +82,12 @@ const Batch = () => {
                     </div>
                 </div>
             </div>
-            <div className="cards">
+            {/* <div className="cards">
                 {batches.map((batch) => (
                     <Card batch={batch}/>
                 ))}
-            </div>
+            </div> */}
+            <Datatable columns = {columns} rows = {all_batches} entity = "batches" />
         </div>
     </div>
   )

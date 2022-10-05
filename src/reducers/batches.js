@@ -1,6 +1,7 @@
 export default (batches = [], action) => {
     switch (action.type) {
         case 'BATCH_RECEIVE':
+            console.log(action.payload.batch)
             batches.push(action.payload.batch)
             console.log(batches)
             return batches
