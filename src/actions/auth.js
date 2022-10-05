@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS, LOAD_DASHBOARD } from '../constants/types'
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOAD_DASHBOARD } from '../constants/types'
 import * as api from '../api'
 
 
@@ -12,8 +12,7 @@ export const login = (values, navigate) => async (dispatch) => {
         const { data } = await api.login(values)
         console.log(data)
         await dispatch({type: LOGIN_SUCCESS, payload: data})
-        console.log(data)
-        if(data.user.role == "Warehouse Manager"){ navigate('/warehouse')}
+        if(data.user.role === "Warehouse Manager"){ navigate('/warehouse')}
         else {navigate('/')}
     } catch (error) {
         dispatch({type: LOGIN_FAIL  })

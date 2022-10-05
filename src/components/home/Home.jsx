@@ -10,7 +10,6 @@ import Navbar from '../partials/navbar/Navbar'
 import Widget from '../partials/widgets/Widget'
 import Featured from '../partials/featured/Featured'
 import Chart from '../partials/charts/Chart'
-import List from '../partials/table/List'
 import Pageheader from '../partials/pageheader/Pageheader'
 import { dashboard } from '../../actions/auth'
 import { loadNotifications } from '../../actions/notifications'
@@ -36,7 +35,7 @@ const Home = () => {
             const decodeToken = decode(token)
             if(decodeToken.exp * 1000 < new Date().getTime()) Logout()
             else setUser(JSON.parse(localStorage.getItem("profile")))
-            if(JSON.parse(localStorage.getItem("profile")).role != "Stock Officer") {
+            if(JSON.parse(localStorage.getItem("profile")).role !== "Stock Officer") {
                 console.log(localStorage.getItem("profile").role)
                 navigate('/warehouse')   
             }/* 
@@ -47,7 +46,7 @@ const Home = () => {
             dispatch(loadNotifications())
             dispatch(dashboard(user.id))
         } else Logout()
-    }, [location, dispatch])
+    }, [location, dispatch, Logout, navigate, user.id, user?.token])
     return (
         <div className='dashboard'>
             <Sidebar />

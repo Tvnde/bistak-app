@@ -1,4 +1,4 @@
-import { BATCH_RECEIVE, BATCH_SEND, BATCH_FETCH, BATCH_FAIL, SHELF_FETCH, BATCH_SEARCH } from "../constants/types"
+import { BATCH_RECEIVE, BATCH_FETCH, SHELF_FETCH, BATCH_SEARCH } from "../constants/types"
 import * as api from '../api'
 
 export const loadBatches = () => async(dispatch) => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import Home from "./components/home/Home"
 import Login from './components/login/Login'
@@ -25,7 +25,6 @@ import CreateForm from './components/warehouse/clients/CreateForm'
 import Dispatch from './components/warehouse/dispatches.js/Dispatch'
 import Shelf from './components/warehouse/shelves/Shelf'
 
-let role = JSON.parse(localStorage.getItem('profile'))
 const App = () => (
         <Router>
                 <div className="app-container">
