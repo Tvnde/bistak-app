@@ -33,11 +33,15 @@ const Home = () => {
         const token = user?.token
         if(token) {
             const decodeToken = decode(token)
-            if(decodeToken.exp * 1000 < new Date().getTime()) Logout()
-            else setUser(JSON.parse(localStorage.getItem("profile")))
-            if(JSON.parse(localStorage.getItem("profile")).role !== "Stock Officer") {
-                console.log(localStorage.getItem("profile").role)
-                navigate('/warehouse')   
+            if(decodeToken.exp * 1000 < new Date().getTime()){
+                 Logout()
+            }
+            else {
+                setUser(JSON.parse(localStorage.getItem("profile")))/* 
+                if(JSON.parse(localStorage.getItem("profile")).role !== "Stock Officer") {
+                    console.log(localStorage.getItem("profile").role)
+                    navigate('/warehouse')   
+                } */
             }/* 
             if(!socket){
                 setSocket(io("https://bistak-api.herokuapp.com"))
@@ -46,7 +50,7 @@ const Home = () => {
             dispatch(loadNotifications())
             dispatch(dashboard(user.id))
         } else Logout()
-    }, [location, dispatch, Logout, navigate, user.id, user?.token])
+    }, [location, dispatch, Logout, navigate])
     return (
         <div className='dashboard'>
             <Sidebar />
