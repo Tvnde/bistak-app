@@ -16,6 +16,8 @@ const Navbar = () => {
     let dispatch = useDispatch()
     let navigate = useNavigate()
     if(JSON.parse(localStorage.getItem('profile'))) {
+        
+    } else {
         navigate('/login')
     }
     const searchProduct1 = () => {
