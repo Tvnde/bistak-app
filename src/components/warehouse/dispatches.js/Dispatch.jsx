@@ -10,6 +10,7 @@ import Card from './Card'
 import { CSVLink } from "react-csv"
 
 import './dispatch.scss'
+import Datatable from '../../partials/datatable/Datatable'
 
 const Dispatch = () => {
   let dispatches = useSelector((state) => state.dispatches)
@@ -35,6 +36,29 @@ const dispatchReport = {
     headers,
     data: dispatches
 }
+
+const columns = [
+    { field: 'id', headerName: 'Dispatch ID', width: 100 },/* 
+    { field: 'shelf', headerName: 'Shelf', width: 110 }, */
+    { 
+        field: 'product_name',
+        headerName: 'Product',
+        width: 300,
+        renderCell: (params) => {
+            return (
+                <div className="cellWithImg">
+                    <img src={params.row.image ? params.row.image : ("https://bistakstore.s3.amazonaws.com/images/Bistak-Grocery-Logo_2.png")} alt="avatar" className='cellImg' />
+                    {params.row.product_name}
+                </div>
+            )
+        }
+    },
+    { field: 'dispatch_count', headerName: 'Dispatch Count', width: 100 },
+    { field: 'batches', headerName: 'Batch(es)', width: 100 },
+    { field: 'client', headerName: 'Client', width: 140},
+]
+
+let all_dispatches = dispatches.length == 0 ? [{id: "", product_name: "", batches: "", dispatch_count: "", client: ""}] : dispatches
   
   return (
     <div className='dispatch'>
@@ -52,11 +76,12 @@ const dispatchReport = {
                     </div>
                 </div>
             </div>
-            <div className="cards">
+            <Datatable columns = {columns} rows = {all_dispatches} entity = "dispatches" />
+{/*             <div className="cards">
                 {dispatches.map((dispatch1) => (
                     <Card disp={dispatch1}/>
                 ))}
-            </div>
+            </div> */}
         </div>
     </div>
   )

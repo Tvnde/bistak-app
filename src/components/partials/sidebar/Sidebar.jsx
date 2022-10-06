@@ -9,8 +9,6 @@ import './sidebar.scss'
 import { Dashboard, Store, NotificationsNone, Assessment, Logout, PersonOutline, PeopleOutline, AppSettingsAltOutlined } from "@mui/icons-material"
 import { getProducts } from '../../../actions/products'
 
-
-
 const Sidebar = () => {
 
     let dispatch = useDispatch()
