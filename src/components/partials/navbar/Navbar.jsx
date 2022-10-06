@@ -15,11 +15,9 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
     let dispatch = useDispatch()
     let navigate = useNavigate()
-    useEffect(() => {
-        if(!(localStorage.getItem('profile'))) {
-            navigate('/login')
-        }
-    }, [navigate])
+    if(JSON.parse(localStorage.getItem('profile'))) {
+        navigate('/login')
+    }
     const searchProduct1 = () => {
         console.log(document.getElementById('search-text').value)
         let query = (document.getElementById('search-text').value)
