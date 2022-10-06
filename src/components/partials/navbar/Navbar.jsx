@@ -15,11 +15,11 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
     let dispatch = useDispatch()
     let navigate = useNavigate()
-/*     useEffect(() => {
-        socket.on("getNotification", (data) => {
-            setNotifications((prev) => [...prev, data])
-        })
-    }, [socket]) */
+    useEffect(() => {
+        if(!(localStorage.getItem('profile'))) {
+            navigate('/login')
+        }
+    }, [navigate])
     const searchProduct1 = () => {
         console.log(document.getElementById('search-text').value)
         let query = (document.getElementById('search-text').value)
