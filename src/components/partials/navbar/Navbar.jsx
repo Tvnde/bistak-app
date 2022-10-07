@@ -31,7 +31,7 @@ const Navbar = () => {
     <div className='dashboard-navbar'>
         <div className="dashboard-wrapper">
             <div className="search">
-                {JSON.parse(localStorage.getItem('profile')).role == "Stock Officer" ? <input type='text' className='searchText' id='search-text' placeholder="Search Users and Products" onChange={searchProduct1}/> : <input type='text' className='searchText' id='search-text' placeholder="Search Batches and Dispatches" onChange={searchProduct1}/>}
+                {JSON.parse(localStorage.getItem('profile')) ? (JSON.parse(localStorage.getItem('profile')).role == "Stock Officer" ? <input type='text' className='searchText' id='search-text' placeholder="Search Users and Products" onChange={searchProduct1}/> : <input type='text' className='searchText' id='search-text' placeholder="Search Batches and Dispatches" onChange={searchProduct1}/>) : (null)}
                 <SearchOutlined className='icon' />
             </div>
             <div className="dashboard-items">
