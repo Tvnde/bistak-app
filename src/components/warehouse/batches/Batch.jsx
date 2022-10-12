@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -66,6 +66,7 @@ const Batch = () => {
         },
     ]
     let all_batches = batches.length == 0 ? [{id: "", product_name: "", batch_count: "", collection_count: "", current_count: "", expiry_date: ""}] : batches
+    const [viewType, setViewType] = useState("list")
   return (
     <div className='batches'>
         <Sidebar/>
@@ -80,14 +81,21 @@ const Batch = () => {
                     <div className="newButton">
                         <CSVLink {...batchReport} className="csv-link">Export Batches</CSVLink>
                     </div>
+                    {viewType == "list" ? <div className="newButton" onClick={() => setViewType("grid")}>Grid View</div> : <div className="newButton" onClick={() => setViewType("list")}>List View</div>}
                 </div>
             </div>
+            {viewType == "list" ? (<Datatable columns = {columns} rows = {all_batches} entity = "batches" />) : (<div className="cards">
+                {batches.map((batch) => (
+                    <Card batch={batch}/>
+                ))}
+            </div>)}
             {/* <div className="cards">
                 {batches.map((batch) => (
                     <Card batch={batch}/>
                 ))}
             </div> */}
-            <Datatable columns = {columns} rows = {all_batches} entity = "batches" />
+            
+            
         </div>
     </div>
   )

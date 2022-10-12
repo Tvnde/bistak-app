@@ -59,6 +59,7 @@ const columns = [
 ]
 
 let all_dispatches = dispatches.length == 0 ? [{id: "", product_name: "", batches: "", dispatch_count: "", client: ""}] : dispatches
+const [viewType, setviewType] = useState("list")
   
   return (
     <div className='dispatch'>
@@ -74,9 +75,15 @@ let all_dispatches = dispatches.length == 0 ? [{id: "", product_name: "", batche
                     <div className="newButton">
                         <CSVLink {...dispatchReport} className="csv-link">Export Dispatches</CSVLink>
                     </div>
+                    {viewType == "list" ? <div className="newButton" onClick={() => setviewType("grid")}>Grid View</div> : <div className="newButton" onClick={() => setviewType("list")}>List View</div>}
                 </div>
             </div>
-            <Datatable columns = {columns} rows = {all_dispatches} entity = "dispatches" />
+            {viewType == "list" ? (<Datatable columns = {columns} rows = {all_dispatches} entity = "dispatches" />) : (<div className="cards">
+                {dispatches.map((dispatch1) => (
+                    <Card disp={dispatch1}/>
+                ))}
+            </div>)}
+            
 {/*             <div className="cards">
                 {dispatches.map((dispatch1) => (
                     <Card disp={dispatch1}/>
