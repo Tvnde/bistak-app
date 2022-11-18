@@ -26,7 +26,7 @@ const Home = () => {
     const [socket, setSocket] = useState(JSON.parse(localStorage.getItem('socket'))) */
     const Logout = () => {
         console.log("Logout")
-        dispatch({type: 'LOGOUT'})
+        dispatch({type: 'LOGOUT_SUCCESS'})
         navigate('/login')
     }
     useEffect(() => {
@@ -37,11 +37,11 @@ const Home = () => {
                  Logout()
             }
             else {
-                setUser(JSON.parse(localStorage.getItem("profile")))/* 
+                setUser(JSON.parse(localStorage.getItem("profile"))) 
                 if(JSON.parse(localStorage.getItem("profile")).role !== "Stock Officer") {
                     console.log(localStorage.getItem("profile").role)
                     navigate('/warehouse')   
-                } */
+                }
             }/* 
             if(!socket){
                 setSocket(io("https://bistak-api.herokuapp.com"))

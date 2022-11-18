@@ -16,8 +16,6 @@ import { dashboard } from '../../../actions/auth'
 
 import '../../partials/widgets/widget.scss'
 
-
-
 const Warehouse = () => {
   const dispatch = useDispatch()
   const location = useLocation()
