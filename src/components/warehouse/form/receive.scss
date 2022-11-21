@@ -5,6 +5,12 @@
     
     .receiveContainer {
         flex: 6;
+
+        .alert-msg {
+            margin: 3% 2%;
+            color: red;
+            display: none;
+        }
         
         form {
             display: flex;

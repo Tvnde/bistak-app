@@ -49,6 +49,7 @@ const Receive = ({inputs}) => {
             <div className="pageheader">
                 <div className="title">Receive New Batch</div>
             </div>
+            <div className="alert-msg">Fill in necessary Fields</div>
             <div className="formContainer">
                 <form>
                     <input type="hidden" name="batchID" id='batchID' value="" />
