@@ -14,7 +14,9 @@ import Datatable from '../../partials/datatable/Datatable'
 
 const Dispatch = () => {
   let dispatches = useSelector((state) => state.dispatches)
+  let clients = useSelector((state) => state.clients)
   console.log(dispatches)
+  console.log(clients)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -55,7 +57,7 @@ const columns = [
     },
     { field: 'dispatch_count', headerName: 'Dispatch Count', width: 100 },
     { field: 'batches', headerName: 'Batch(es)', width: 100 },
-    { field: 'client', headerName: 'Client', width: 140},
+    { field: 'client_name', headerName: 'Client', width: 140},
 ]
 
 let all_dispatches = dispatches.length == 0 ? [{id: "", product_name: "", batches: "", dispatch_count: "", client: ""}] : dispatches

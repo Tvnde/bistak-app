@@ -5,6 +5,7 @@ export const loadDispatches = () => async(dispatch) => {
     try {
         const {data} = await api.fetchDispatches()
         dispatch({type: DISPATCH_FETCH, payload: data})
+        console.log(data)
     } catch (error) {
         console.log(error.message)
     }
