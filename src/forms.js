@@ -121,9 +121,9 @@ export const receiveBatch = [
     {
         id: 5,
         target: "collection_count",
-        label: "Collection Count",
+        label: "Items in Batch",
         type: "number",
-        placeholder: "Collection Count"
+        placeholder: "Items in Batch"
     }
 ]
 
