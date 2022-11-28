@@ -23,6 +23,9 @@ const Receive = ({inputs}) => {
         batch_count: batches ? batches.batch_count : "",
     })
 
+    const [productv, setProductv] = useState(false)
+    const [groupid, setGroupid] = useState(false)
+
     const batchReceive = (e) => {
         e.preventDefault()
         let groupID = document.querySelector("#groupID").value
@@ -36,6 +39,26 @@ const Receive = ({inputs}) => {
         console.log({groupID, batchID, production_date, product, expiry_date, batch_count, collection_count})
     
         dispatch(receiveBatch({groupID, batchID, production_date, product, expiry_date, batch_count, collection_count}, navigate))
+    }
+    let validateProduct = (product) => {
+        console.log(product)
+        setProductv(true)
+    }
+
+    let validateGroupIDs = (input) => {
+
+    }
+
+    let validateExpiry = (inputDate) => {
+        
+    }
+
+    let validateBatchCount = (input) => {
+
+    }
+
+    let validateCollectionCount = (input) => {
+
     }
 
     useEffect(() => {
@@ -54,7 +77,7 @@ const Receive = ({inputs}) => {
                 <form>
                     <input type="hidden" name="batchID" id='batchID' value="" />
                     <div className="formInput" key={7}>
-                        <select id='product' className='select-input'>
+                        <select id='product' className='select-input' onChange={(e) => validateProduct(e.target.value)}>
                             {products.map((input) => (
                                 <option value={input._id}>{input.name}</option>
                             ))}
@@ -63,7 +86,7 @@ const Receive = ({inputs}) => {
                     </div>
                     {inputs.map((input) => (
                         <div className="formInput" key={input.id}>
-                            {input.type =="date" ? (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue={values[input.target]} placeholder=" " />) : (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue={values[input.target]} placeholder=" " />)}                            
+                            {input.type =="date" ? (<input type={input.type} className={`create-input ${input.target}`} id={input.target} onChange = {(e) => {console.log(e.target.value)}} defaultValue={values[input.target]} placeholder=" " />) : (<input type={input.type} className={`create-input ${input.target}`} id={input.target} defaultValue={values[input.target]} onChange = {(e) => {console.log(e.target.value)}} placeholder=" " />)}                            
                             <label className="create-label" htmlFor={input.target}>{input.label}</label>
                         </div>
                     ))}
